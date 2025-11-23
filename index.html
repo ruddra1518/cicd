@@ -1,12 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CICD</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>EasyBook — Airline Booking</title>
+        <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <h1>CICD Pipeline</h1>
-    <p>Abcd</p>
+        <header class="site-header">
+            <div class="container">
+                <h1 class="logo">EasyBook</h1>
+                <nav aria-label="Main navigation">
+                    <a href="#search">Book</a>
+                    <a href="#bookings">My Bookings</a>
+                </nav>
+            </div>
+        </header>
+
+        <main class="container">
+            <section id="search" class="card">
+                <h2>Find flights</h2>
+                <form id="searchForm">
+                    <div class="row">
+                        <label>From
+                            <input type="text" id="from" name="from" required placeholder="City or airport" />
+                        </label>
+                        <label>To
+                            <input type="text" id="to" name="to" required placeholder="City or airport" />
+                        </label>
+                    </div>
+
+                    <div class="row">
+                        <label>Depart
+                            <input type="date" id="depart" name="depart" required />
+                        </label>
+                        <label>Return
+                            <input type="date" id="return" name="return" />
+                        </label>
+                        <label>Passengers
+                            <input type="number" id="passengers" name="passengers" min="1" value="1" required />
+                        </label>
+                    </div>
+
+                    <div class="row">
+                        <label>Class
+                            <select id="travelClass" name="travelClass">
+                                <option>Economy</option>
+                                <option>Premium Economy</option>
+                                <option>Business</option>
+                                <option>First</option>
+                            </select>
+                        </label>
+                        <button type="submit" class="btn primary">Search</button>
+                    </div>
+                </form>
+            </section>
+
+            <section id="results" class="card hide">
+                <h2>Available flights</h2>
+                <div id="flightsList" class="flights-list" aria-live="polite"></div>
+            </section>
+
+            <section id="bookings" class="card">
+                <h2>My Bookings</h2>
+                <div id="bookingsList">No bookings yet.</div>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <div class="container">© EasyBook — A demo booking UI</div>
+        </footer>
+
+        <script src="app.js"></script>
 </body>
 </html>
